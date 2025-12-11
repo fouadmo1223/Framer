@@ -6,6 +6,8 @@ import Button from "./motion/Button";
 import Variants from "./motion/Variants";
 import Drag from "./motion/Drag";
 import Modal from "./motion/Modal";
+import Layout from "./motion/Layout";
+import { LiveBadge } from "./motion/LiveBadge";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       {/* <Variants /> */}
 
       {/* <Drag /> */}
-      <Modal />
+      {/* <Modal /> */}
+      {/* <Layout /> */}
+      <LiveBadge />
     </div>
   );
 }
