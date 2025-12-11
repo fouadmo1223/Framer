@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import Navbar from "./motion/pagesAnimation/Navbar";
+import TextAnimation from "./motion/TextAnimation";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -59,16 +60,18 @@ function App() {
       <Navbar />
 
       <div className="pt-20 overflow-hidden">
-        {" "}
-        {/* padding so navbar doesn't cover content */}
-        <AnimatePresence mode="wait">
+        <TextAnimation />
+        
+        
+         {/* padding so navbar doesn't cover content */}
+        {/* <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
     </>
   );
