@@ -5,6 +5,8 @@ import Navbar from "./motion/pagesAnimation/Navbar";
 import TextAnimation from "./motion/TextAnimation";
 import Bee from "./motion/Bee";
 import Starter from "./gsap/Starter";
+import HelloSVG from "./gsap/Hellosvg";
+import ClickEvent from "./gsap/ClickEvent";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -79,7 +81,12 @@ function App() {
       </div> */}
 
       {/* GSAAAAP  */}
-      <Starter />
+
+      <div className="min-h-screen w-full flex-col flex justify-center items-center gap-10">
+        <Starter />
+        <HelloSVG />
+        <ClickEvent />
+      </div>
     </>
   );
 }
