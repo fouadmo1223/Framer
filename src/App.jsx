@@ -8,6 +8,7 @@ import Starter from "./gsap/Starter";
 import HelloSVG from "./gsap/Hellosvg";
 import ClickEvent from "./gsap/ClickEvent";
 import CharAnimation from "./gsap/CharAnimation";
+import Timeline from "./gsap/Timeline";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -84,10 +85,11 @@ function App() {
       {/* GSAAAAP  */}
 
       <div className="min-h-screen w-full flex-col flex justify-center items-center gap-10">
-        <Starter />
+        {/* <Starter />
         <HelloSVG />
         <ClickEvent />
-        <CharAnimation />
+        <CharAnimation /> */}
+        <Timeline />
       </div>
     </>
   );
