@@ -9,6 +9,7 @@ import HelloSVG from "./gsap/Hellosvg";
 import ClickEvent from "./gsap/ClickEvent";
 import CharAnimation from "./gsap/CharAnimation";
 import Timeline from "./gsap/Timeline";
+import ScrollTriggerDemo from "./gsap/ScrollTriggerDemo";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -89,7 +90,9 @@ function App() {
         <HelloSVG />
         <ClickEvent />
         <CharAnimation /> */}
-        <Timeline />
+        {/* <Timeline /> */}
+
+        <ScrollTriggerDemo />
       </div>
     </>
   );
