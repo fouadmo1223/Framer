@@ -9,10 +9,10 @@ const Starter = () => {
     // gsap.from(".head", {
 
     gsap.from(head.current, {
-      x: 50,
-      opacity: 0,
+      y: 150,
+    //   opacity: 0,
       duration: 1,
-      ease: "power3.out",
+      ease: "bounce.out",
     });
   });
 

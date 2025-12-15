@@ -7,6 +7,7 @@ import Bee from "./motion/Bee";
 import Starter from "./gsap/Starter";
 import HelloSVG from "./gsap/Hellosvg";
 import ClickEvent from "./gsap/ClickEvent";
+import CharAnimation from "./gsap/CharAnimation";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -86,6 +87,7 @@ function App() {
         <Starter />
         <HelloSVG />
         <ClickEvent />
+        <CharAnimation />
       </div>
     </>
   );
