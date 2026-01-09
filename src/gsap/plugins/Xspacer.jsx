@@ -29,6 +29,12 @@ const Xspacer = () => {
       gsap.to(slides, {
         xPercent: -100 * (slides.length - 1),
         duration: 3,
+        scrollTrigger: {
+          trigger: track.current,
+          start: "top top",
+          scrub: 1,
+          pin: true,
+        },
       });
     },
     { scope: container }
@@ -36,6 +42,9 @@ const Xspacer = () => {
 
   return (
     <div ref={container} className="overflow-x-hidden bg-amber-100">
+      <div className="min-h-[400px] flex items-center justify-center">
+        Spacer
+      </div>
       {/* SLIDE TRACK */}
       <div ref={track} className="flex w-[300vw] h-screen">
         <section className="slide min-w-screen flex items-center justify-center bg-white text-black text-5xl">
