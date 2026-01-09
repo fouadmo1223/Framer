@@ -10,6 +10,8 @@ import ClickEvent from "./gsap/ClickEvent";
 import CharAnimation from "./gsap/CharAnimation";
 import Timeline from "./gsap/Timeline";
 import ScrollTriggerDemo from "./gsap/ScrollTriggerDemo";
+import Button from "./motion/Button";
+import ScrollTriger from "./gsap/plugins/ScrollTrigger";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -85,14 +87,16 @@ function App() {
 
       {/* GSAAAAP  */}
 
-      <div className="min-h-screen w-full flex-col flex justify-center items-center gap-10">
+      <div className="min-h-screen h-[11180px] w-full flex-col flex justify-center items-center gap-10">
         {/* <Starter />
         <HelloSVG />
         <ClickEvent />
         <CharAnimation /> */}
         {/* <Timeline /> */}
 
-        <ScrollTriggerDemo />
+        {/* <ScrollTriggerDemo /> */}
+        {/* <Button /> */}
+        <ScrollTriger />
       </div>
     </>
   );
