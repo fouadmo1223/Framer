@@ -14,7 +14,9 @@ import Button from "./motion/Button";
 import ScrollTriger from "./gsap/plugins/ScrollTrigger";
 import SecondScrollTrigger from "./gsap/plugins/SecondScrollTrigger";
 import ThirdScroll from "./gsap/plugins/ThirdScroll";
-import Xspacer from "./gsap/plugins/Xspacer";;
+import Xspacer from "./gsap/plugins/Xspacer";import ScrollSmotherDemo from "./gsap/plugins/ScrollSmotherDemo";
+import ScrollButtonsDemo from "./gsap/plugins/ScrollButtonsDemo";
+;
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -103,7 +105,7 @@ function App() {
         {/* <ScrollTriger /> */}
         {/* <SecondScrollTrigger /> */}
         {/* <ThirdScroll /> */}
-        <Xspacer />
+        <ScrollButtonsDemo />
       </div>
     </>
   );

@@ -48,3 +48,14 @@
     justify-content: center;
     user-select: none;
 }
+
+html,
+body {
+    height: 100%;
+}
+
+
+
+#smooth-content {
+    min-height: 100vh;
+}
