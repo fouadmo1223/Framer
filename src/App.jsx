@@ -14,10 +14,10 @@ import Button from "./motion/Button";
 import ScrollTriger from "./gsap/plugins/ScrollTrigger";
 import SecondScrollTrigger from "./gsap/plugins/SecondScrollTrigger";
 import ThirdScroll from "./gsap/plugins/ThirdScroll";
-import Xspacer from "./gsap/plugins/Xspacer";import ScrollSmotherDemo from "./gsap/plugins/ScrollSmotherDemo";
+import Xspacer from "./gsap/plugins/Xspacer";
+import ScrollSmotherDemo from "./gsap/plugins/ScrollSmotherDemo";
 import ScrollButtonsDemo from "./gsap/plugins/ScrollButtonsDemo";
-;
-
+import SimpleParallax from "./gsap/plugins/SimpleParallax";
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
   return (
@@ -105,7 +105,7 @@ function App() {
         {/* <ScrollTriger /> */}
         {/* <SecondScrollTrigger /> */}
         {/* <ThirdScroll /> */}
-        <ScrollButtonsDemo />
+        <SimpleParallax />
       </div>
     </>
   );
