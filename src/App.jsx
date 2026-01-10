@@ -93,7 +93,7 @@ function App() {
       {/* GSAAAAP  */}
 
       {/* <div className="min-h-screen h-[11180px] w-full flex-col flex justify-center items-center gap-10"> */}
-      <div className="min-h-screen h-[11180px] w-full ">
+      <div className="min-h-screen h-screen w-full ">
         {/* <Starter />
         <HelloSVG />
         <ClickEvent />
@@ -105,6 +105,7 @@ function App() {
         {/* <ScrollTriger /> */}
         {/* <SecondScrollTrigger /> */}
         {/* <ThirdScroll /> */}
+
         <SimpleParallax />
       </div>
     </>
