@@ -19,6 +19,7 @@ import ScrollSmotherDemo from "./gsap/plugins/ScrollSmotherDemo";
 import ScrollButtonsDemo from "./gsap/plugins/ScrollButtonsDemo";
 import SimpleParallax from "./gsap/plugins/SimpleParallax";
 import Product from "./Product";
+import QuickSitter from "./gsap/QuickSitter";
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
   return (
@@ -107,9 +108,10 @@ function App() {
         {/* <SecondScrollTrigger /> */}
         {/* <ThirdScroll /> */}
 
-        <SimpleParallax />
-
+        {/* <SimpleParallax /> */}
         {/* <Product /> */}
+
+        <QuickSitter />
       </div>
     </>
   );
