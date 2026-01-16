@@ -20,8 +20,10 @@ const QuickSitter = () => {
     //   });
     // };
 
+    // use quickTo to add animation 
     const xSetter = gsap.quickSetter(mover.current, "x", "px");
     const ySetter = gsap.quickSetter(mover.current, "y", "px");
+    
 
     const moveHandler = (e) => {
       xSetter(e.clientX - 5);
