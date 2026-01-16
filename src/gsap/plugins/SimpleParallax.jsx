@@ -8,11 +8,12 @@ import Xspacer from "./Xspacer";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const SimpleParallax = () => {
+
   useGSAP(() => {
     const smoother = ScrollSmoother.create({
-     
       content: "#smooth-content",
       smooth: 1.2,
+      smoothTouch:1.5, // for mobile
       effects: true, // enables speed
     });
 

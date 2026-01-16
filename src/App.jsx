@@ -18,6 +18,7 @@ import Xspacer from "./gsap/plugins/Xspacer";
 import ScrollSmotherDemo from "./gsap/plugins/ScrollSmotherDemo";
 import ScrollButtonsDemo from "./gsap/plugins/ScrollButtonsDemo";
 import SimpleParallax from "./gsap/plugins/SimpleParallax";
+import Product from "./Product";
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
   return (
@@ -107,6 +108,8 @@ function App() {
         {/* <ThirdScroll /> */}
 
         <SimpleParallax />
+
+        {/* <Product /> */}
       </div>
     </>
   );
