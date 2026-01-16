@@ -8,14 +8,24 @@ gsap.registerPlugin(useGSAP);
 const QuickSitter = () => {
   const mover = useRef(null);
 
+
+
   useGSAP(() => {
+    // const moveHandler = (e) => {
+    //   gsap.to(mover.current, {
+    //     x: e.clientX - 5, // center the circle
+    //     y: e.clientY - 5,
+    //     duration: 0.4,
+    //     ease: "power3.out",
+    //   });
+    // };
+
+    const xSetter = gsap.quickSetter(mover.current, "x", "px");
+    const ySetter = gsap.quickSetter(mover.current, "y", "px");
+
     const moveHandler = (e) => {
-      gsap.to(mover.current, {
-        x: e.clientX - 5, // center the circle
-        y: e.clientY - 5,
-        duration: 0.4,
-        ease: "power3.out",
-      });
+      xSetter(e.clientX - 5);
+      ySetter(e.clientY - 5);
     };
 
     // set make it dirictly no latency and duration so its not smooth
