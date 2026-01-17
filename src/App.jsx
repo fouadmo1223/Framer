@@ -111,8 +111,8 @@ function App() {
         {/* <SimpleParallax /> */}
         {/* <Product /> */}
         {/* <QuickSitter /> */}
-        {/* <SplitTextDemo /> */}
-        <AnimatedChars />
+        <SplitTextDemo />
+        {/* <AnimatedChars /> */}
       </div>
     </>
   );

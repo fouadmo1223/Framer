@@ -16,13 +16,14 @@ const SplitTextDemo = () => {
     // document.fonts.ready  to wait fonts to be loadded
 
     // make animation on splited text
-    // gsap.from(split.lines, {
-    //   opacity: 0,
-    //   y: 100,
-    //   stagger: 1,
-    //   duration: 1,
-    //   ease: "power2.out",
-    // });
+    gsap.from(split.lines, {
+      opacity: 0,
+      y: 100,
+      mask: "lines",
+      stagger: 1,
+      duration: 1,
+      ease: "power2.out",
+    });
 
     // gsap.from(split.chars, {
     //   opacity: 0,
