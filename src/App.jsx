@@ -21,6 +21,7 @@ import SimpleParallax from "./gsap/plugins/SimpleParallax";
 import Product from "./Product";
 import QuickSitter from "./gsap/QuickSitter";
 import SplitTextDemo from "./gsap/plugins/SplitTextDemo";
+import AnimatedChars from "./gsap/plugins/AnimatedChars";
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
   return (
@@ -110,7 +111,8 @@ function App() {
         {/* <SimpleParallax /> */}
         {/* <Product /> */}
         {/* <QuickSitter /> */}
-        <SplitTextDemo />
+        {/* <SplitTextDemo /> */}
+        <AnimatedChars />
       </div>
     </>
   );

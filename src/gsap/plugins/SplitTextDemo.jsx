@@ -24,16 +24,16 @@ const SplitTextDemo = () => {
     //   ease: "power2.out",
     // });
 
-    gsap.from(split.chars, {
-      opacity: 0,
-      y: 100,
-      stagger: {
-        each: "0.05",
-        from: "random",
-      },
-      duration: 1,
-      ease: "elastic.out",
-    });
+    // gsap.from(split.chars, {
+    //   opacity: 0,
+    //   y: 100,
+    //   stagger: {
+    //     each: "0.01",
+    //     from: "random",
+    //   },
+    //   duration: 1,
+    //   ease: "power2.in",
+    // });
   }, []);
 
   return (
