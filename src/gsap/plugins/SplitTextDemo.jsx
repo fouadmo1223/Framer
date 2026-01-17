@@ -4,7 +4,7 @@ import { ScrollSmoother } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-
+gsap.registerPlugin(SplitText);
 const SplitTextDemo = () => {
   useGSAP(() => {
     const split = SplitText.create("span", {
@@ -19,6 +19,7 @@ const SplitTextDemo = () => {
     gsap.from(split.lines, {
       opacity: 0,
       y: 100,
+      autoSplit: true, // for resizning
       mask: "lines",
       stagger: 1,
       duration: 1,
