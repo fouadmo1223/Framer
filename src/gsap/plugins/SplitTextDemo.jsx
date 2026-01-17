@@ -8,9 +8,12 @@ import { useGSAP } from "@gsap/react";
 const SplitTextDemo = () => {
   useGSAP(() => {
     const split = SplitText.create("span", {
-      type: "line++", // to make each line take diffrent class
-      linesClass: "text-red-500",
+      type: "lines",
+      linesClass: "line++", // each line take diff class
     });
+
+    // in js 
+    // document.fonts.ready  to wait fonts to be loadded
   }, []);
 
   return (
