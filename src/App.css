@@ -59,3 +59,8 @@ body {
 #smooth-content {
     min-height: 100vh;
 }
+
+.line6{
+    font-style: italic;
+    color:aqua
+}
