@@ -23,6 +23,7 @@ import QuickSitter from "./gsap/QuickSitter";
 import SplitTextDemo from "./gsap/plugins/SplitTextDemo";
 import AnimatedChars from "./gsap/plugins/AnimatedChars";
 import KeyFrames from "./gsap/KeyFrames";
+import SVGDrawing from "./gsap/plugins/SVGDrawing";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -115,7 +116,8 @@ function App() {
         {/* <QuickSitter /> */}
         {/* <SplitTextDemo /> */}
         {/* <AnimatedChars /> */}
-        <KeyFrames />
+        {/* <KeyFrames /> */}
+        <SVGDrawing />
       </div>
     </>
   );
