@@ -24,6 +24,7 @@ import SplitTextDemo from "./gsap/plugins/SplitTextDemo";
 import AnimatedChars from "./gsap/plugins/AnimatedChars";
 import KeyFrames from "./gsap/KeyFrames";
 import SVGDrawing from "./gsap/plugins/SVGDrawing";
+import ObserverDemo from "./gsap/plugins/ObserverDemo";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -117,7 +118,7 @@ function App() {
         {/* <SplitTextDemo /> */}
         {/* <AnimatedChars /> */}
         {/* <KeyFrames /> */}
-        <SVGDrawing />
+        <ObserverDemo />
       </div>
     </>
   );

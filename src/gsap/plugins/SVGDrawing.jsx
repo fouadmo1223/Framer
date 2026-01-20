@@ -7,11 +7,12 @@ gsap.registerPlugin(DrawSVGPlugin);
 
 const SVGDrawing = () => {
   useGSAP(() => {
+    
     gsap.fromTo(
       "#icon-path",
       { drawSVG: "10% 30%" }, // works on svg paths
       {
-        drawSVG: "100%", // make it true also 
+        drawSVG: "100%", // make it true also
         duration: 4,
         ease: "power2.out",
       },
