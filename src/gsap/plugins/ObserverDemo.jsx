@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
-import SplitText from "gsap/SplitText"; // Make sure you install GSAP and the SplitText plugin
+import SplitText from "gsap/SplitText";
 
 gsap.registerPlugin(Observer, SplitText);
 
@@ -32,43 +32,48 @@ const ObserverDemo = () => {
   const sectionsRef = useRef([]);
   const outerRef = useRef([]);
   const innerRef = useRef([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const splitHeadings = useRef([]);
+  const currentIndexRef = useRef(-1); // use ref instead of state
+  const animatingRef = useRef(false);
 
   useEffect(() => {
     gsap.set(outerRef.current, { yPercent: 100 });
     gsap.set(innerRef.current, { yPercent: -100 });
 
     splitHeadings.current = sectionsRef.current.map(
-      (section, i) =>
+      (section) =>
         new SplitText(section.querySelector("h2"), {
           type: "chars,words,lines",
           linesClass: "clip-text",
         }),
     );
 
-    let animating = false;
     const wrap = gsap.utils.wrap(0, sectionsData.length);
 
     function gotoSection(index, direction) {
       index = wrap(index);
-      animating = true;
+      animatingRef.current = true;
       const fromTop = direction === -1;
       const dFactor = fromTop ? -1 : 1;
 
       const tl = gsap.timeline({
         defaults: { duration: 1.25, ease: "power1.inOut" },
-        onComplete: () => (animating = false),
+        onComplete: () => (animatingRef.current = false),
       });
 
-      if (currentIndex >= 0 && sectionsRef.current[currentIndex]) {
-        gsap.set(sectionsRef.current[currentIndex], { zIndex: 0 });
-        tl.to(sectionsRef.current[currentIndex].querySelector(".bg"), {
-          yPercent: -15 * dFactor,
-        }).set(sectionsRef.current[currentIndex], { autoAlpha: 0 });
+      if (currentIndexRef.current >= 0) {
+        const prev = sectionsRef.current[currentIndexRef.current];
+        gsap.set(prev, { zIndex: 0 });
+        tl.to(prev.querySelector(".bg"), { yPercent: -15 * dFactor }).set(
+          prev,
+          {
+            autoAlpha: 0,
+          },
+        );
       }
 
-      gsap.set(sectionsRef.current[index], { autoAlpha: 1, zIndex: 1 });
+      const curr = sectionsRef.current[index];
+      gsap.set(curr, { autoAlpha: 1, zIndex: 1 });
 
       tl.fromTo(
         [outerRef.current[index], innerRef.current[index]],
@@ -77,7 +82,7 @@ const ObserverDemo = () => {
         0,
       )
         .fromTo(
-          sectionsRef.current[index].querySelector(".bg"),
+          curr.querySelector(".bg"),
           { yPercent: 15 * dFactor },
           { yPercent: 0 },
           0,
@@ -95,20 +100,22 @@ const ObserverDemo = () => {
           0.2,
         );
 
-      setCurrentIndex(index);
+      currentIndexRef.current = index;
     }
 
     Observer.create({
       type: "wheel,touch,pointer",
       wheelSpeed: -1,
-      onDown: () => !animating && gotoSection(currentIndex - 1, -1),
-      onUp: () => !animating && gotoSection(currentIndex + 1, 1),
+      onDown: () =>
+        !animatingRef.current && gotoSection(currentIndexRef.current - 1, -1),
+      onUp: () =>
+        !animatingRef.current && gotoSection(currentIndexRef.current + 1, 1),
       tolerance: 10,
       preventDefault: true,
     });
 
     gotoSection(0, 1);
-  }, [currentIndex]);
+  }, []);
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
