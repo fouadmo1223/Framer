@@ -25,6 +25,7 @@ import AnimatedChars from "./gsap/plugins/AnimatedChars";
 import KeyFrames from "./gsap/KeyFrames";
 import SVGDrawing from "./gsap/plugins/SVGDrawing";
 import ObserverDemo from "./gsap/plugins/ObserverDemo";
+import ObserverPractice from "./gsap/plugins/ObserverPractice";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -118,7 +119,8 @@ function App() {
         {/* <SplitTextDemo /> */}
         {/* <AnimatedChars /> */}
         {/* <KeyFrames /> */}
-        <ObserverDemo />
+        {/* <ObserverDemo /> */}
+        <ObserverPractice />
       </div>
     </>
   );
