@@ -11,9 +11,10 @@ const DragDemo = () => {
 
   useGSAP(() => {
     Draggable.create(boxRef.current, {
-      type: "x,y",
-      inertia: true,
-      bounds: window,
+      type: "x,y", // dir of move (rotation for rotate only )
+      inertia: true, // for momentum
+      bounds: window, // where it can move
+      edgeResistance: 0.7,
       onRelease() {
         const box = boxRef.current.getBoundingClientRect();
         const dropZone = dropZoneRef.current.getBoundingClientRect();
