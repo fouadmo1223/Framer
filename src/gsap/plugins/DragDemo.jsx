@@ -34,6 +34,7 @@ const DragDemo = () => {
           gsap.to(boxRef.current, {
             x: 0,
             y: 0,
+            backgroundColor: "#2b7fff",
             duration: 0.5,
             ease: "power2.out",
           });
