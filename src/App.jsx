@@ -26,6 +26,7 @@ import KeyFrames from "./gsap/KeyFrames";
 import SVGDrawing from "./gsap/plugins/SVGDrawing";
 import ObserverDemo from "./gsap/plugins/ObserverDemo";
 import ObserverPractice from "./gsap/plugins/ObserverPractice";
+import DragDemo from "./gsap/plugins/DragDemo";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -120,7 +121,8 @@ function App() {
         {/* <AnimatedChars /> */}
         {/* <KeyFrames /> */}
         {/* <ObserverDemo /> */}
-        <ObserverPractice />
+        {/* <ObserverPractice /> */}
+        <DragDemo />
       </div>
     </>
   );

@@ -26,6 +26,7 @@ const ObserverPractice = () => {
     Observer.create({
       target: "window",
       type: "wheel,touch,scroll,pointer",
+      tolerance: 200, // make nothing happen fo 200px then action happen
       onDown: () => rotate(0),
       onUp: () => rotate(180),
     });
