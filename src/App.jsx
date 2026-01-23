@@ -28,6 +28,9 @@ import ObserverDemo from "./gsap/plugins/ObserverDemo";
 import ObserverPractice from "./gsap/plugins/ObserverPractice";
 import DragDemo from "./gsap/plugins/DragDemo";
 import ScrumbleDemo from "./gsap/plugins/ScrumbleDemo";
+import ScrollMotionDemo from "./gsap/plugins/ScrollMotionDemo";
+import MountainScroll from "./gsap/plugins/MountainScroll";
+import AirplaneScroll from "./gsap/plugins/AirplaneScroll";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -124,7 +127,10 @@ function App() {
         {/* <ObserverDemo /> */}
         {/* <ObserverPractice /> */}
         {/* <DragDemo /> */}
-        <ScrumbleDemo />
+        {/* <ScrumbleDemo /> */}
+        {/* <ScrollMotionDemo /> */}
+        {/* <MountainScroll /> */}
+        <AirplaneScroll />
       </div>
     </>
   );
