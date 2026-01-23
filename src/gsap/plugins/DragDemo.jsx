@@ -15,39 +15,46 @@ const DragDemo = () => {
       inertia: true, // for momentum
       bounds: window, // where it can move
       edgeResistance: 0.7,
-      // onRelease() {
-      //   const box = boxRef.current.getBoundingClientRect();
-      //   const dropZone = dropZoneRef.current.getBoundingClientRect();
-
-      //   const isInside =
-      //     box.left > dropZone.left &&
-      //     box.right < dropZone.right &&
-      //     box.top > dropZone.top &&
-      //     box.bottom < dropZone.bottom;
-
-      //   if (isInside) {
-      //     gsap.to(boxRef.current, {
-      //       scale: 0.8,
-      //       backgroundColor: "#22c55e",
-      //       duration: 0.3,
-      //     });
-      //   } else {
-      //     gsap.to(boxRef.current, {
-      //       x: 0,
-      //       y: 0,
-      //       backgroundColor: "#2b7fff",
-      //       duration: 0.5,
-      //       ease: "power2.out",
-      //     });
-      //   }
-      // },
       onRelease() {
-        gsap.to(boxRef.current, {
-          x: 0,
-          y: 0,
+        const box = boxRef.current.getBoundingClientRect();
+        const dropZone = dropZoneRef.current.getBoundingClientRect();
 
-          duration: 0.5,
-          ease: "elastic",
+        const isInside =
+          box.left > dropZone.left &&
+          box.right < dropZone.right &&
+          box.top > dropZone.top &&
+          box.bottom < dropZone.bottom;
+
+        if (isInside) {
+          gsap.to(boxRef.current, {
+            rotation: "+=360",
+            scale: 0.8,
+            backgroundColor: "#22c55e",
+            duration: 1,
+          });
+        } else {
+          gsap.to(boxRef.current, {
+            x: 0,
+            y: 0,
+            backgroundColor: "#2b7fff",
+            duration: 0.5,
+            ease: "power2.out",
+          });
+        }
+      },
+      // onRelease() {
+      //   gsap.to(boxRef.current, {
+      //     x: 0,
+      //     y: 0,
+
+      //     duration: 0.5,
+      //     ease: "elastic",
+      //   });
+      // },
+      onDrag() {
+        gsap.to(boxRef.current, {
+          rotation: 360,
+          duration: 2,
         });
       },
     });
