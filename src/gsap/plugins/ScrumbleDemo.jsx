@@ -18,10 +18,11 @@ const ScrumbleDemo = () => {
       },
       {
         scrambleText: {
-          text: "Scramble Text Effect 🚀",
+          text: "Scramble Text Effect 🚀", // the new text will appear
           chars: "upperAndLowerCase",
           speed: 0.4,
           revealDelay: 0.2,
+          delimiter: "", // default is space how thw word or char would reveal
         },
         duration: 2,
         ease: "none",
@@ -37,7 +38,7 @@ const ScrumbleDemo = () => {
         onMouseEnter={() => {
           gsap.to(textRef.current, {
             scrambleText: {
-              text: "Scramble Text Effect 🚀",
+              text: "Scramble Text Effect 🚀", // the new text will appear
               chars: "0123456789!@#$%^&*",
               speed: 0.1,
             },
