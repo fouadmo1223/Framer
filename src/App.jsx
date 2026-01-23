@@ -27,6 +27,7 @@ import SVGDrawing from "./gsap/plugins/SVGDrawing";
 import ObserverDemo from "./gsap/plugins/ObserverDemo";
 import ObserverPractice from "./gsap/plugins/ObserverPractice";
 import DragDemo from "./gsap/plugins/DragDemo";
+import ScrumbleDemo from "./gsap/plugins/ScrumbleDemo";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -122,7 +123,8 @@ function App() {
         {/* <KeyFrames /> */}
         {/* <ObserverDemo /> */}
         {/* <ObserverPractice /> */}
-        <DragDemo />
+        {/* <DragDemo /> */}
+        <ScrumbleDemo />
       </div>
     </>
   );
