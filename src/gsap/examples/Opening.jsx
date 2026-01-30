@@ -38,16 +38,25 @@ const Opening = () => {
   const container = useRef(null);
   const timeline = gsap.timeline();
   const hero = useRef(null);
+  const title = useRef(null);
 
   useGSAP(
     () => {
       // box oppening animation
-      timeline.from(hero.current, {
-        clipPath: "inset(20% 20% 20% 20%)",
-        duration: 2,
-        delay: 1,
-        ease: "power2.inOut",
-      });
+      timeline
+        .from(hero.current, {
+          clipPath: "inset(20% 20% 20% 20%)",
+          duration: 2,
+          delay: 1,
+          ease: "power2.inOut",
+        })
+        .from(title.current, {
+          clipPath: "inset(100% 0 0 0)",
+          duration: 2,
+          stagger: 0.1,
+          y: 50,
+          ease: "power2.inOut",
+        });
     },
     { scope: container },
   );
@@ -65,7 +74,7 @@ const Opening = () => {
         >
           <div className="">
             {/* // don't make animation on element have css styles for x and y */}
-            <h2>GSAP</h2>
+            <h2 ref={title}>GSAP</h2>
           </div>
         </div>
       </div>
