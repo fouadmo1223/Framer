@@ -20,11 +20,16 @@ const StaggerText = () => {
       });
 
       gsap.defaults({
-        repeat: -1,
-        yoyo: true,
+        // make last go up first
+        // repeat: -1,
+        // yoyo: true,
         duration: 1.6,
-        stagger: 0.06,
         ease: "power2.inOut",
+        stagger: {
+          each: "0.1",
+          repeat: -1,
+          yoyo: true,
+        },
       });
 
       gsap.fromTo(splitFirst.chars, { y: -100 }, { y: 150 });
