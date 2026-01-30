@@ -34,6 +34,7 @@ import AirplaneScroll from "./gsap/plugins/AirplaneScroll";
 import StaggerText from "./gsap/examples/StaggerText";
 import Opening from "./gsap/examples/Opening";
 import ParrelxEfect from "./gsap/examples/ParrelxEfect";
+import Frames from "./gsap/examples/Frames";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -136,7 +137,8 @@ function App() {
         {/* <AirplaneScroll /> */}
         {/* <StaggerText /> */}
         {/* <Opening /> */}
-        <ParrelxEfect />
+        {/* <ParrelxEfect /> */}
+        <Frames />
       </div>
     </>
   );
