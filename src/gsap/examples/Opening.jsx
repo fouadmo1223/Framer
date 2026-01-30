@@ -41,6 +41,7 @@ const Opening = () => {
 
   useGSAP(
     () => {
+      // box oppening animation
       timeline.from(hero.current, {
         clipPath: "inset(20% 20% 20% 20%)",
         duration: 2,
