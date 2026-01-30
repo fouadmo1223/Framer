@@ -33,6 +33,7 @@ import MountainScroll from "./gsap/plugins/MountainScroll";
 import AirplaneScroll from "./gsap/plugins/AirplaneScroll";
 import StaggerText from "./gsap/examples/StaggerText";
 import Opening from "./gsap/examples/Opening";
+import ParrelxEfect from "./gsap/examples/ParrelxEfect";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -134,7 +135,8 @@ function App() {
         {/* <MountainScroll /> */}
         {/* <AirplaneScroll /> */}
         {/* <StaggerText /> */}
-        <Opening />
+        {/* <Opening /> */}
+        <ParrelxEfect />
       </div>
     </>
   );
