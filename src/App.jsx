@@ -31,6 +31,7 @@ import ScrumbleDemo from "./gsap/plugins/ScrumbleDemo";
 import ScrollMotionDemo from "./gsap/plugins/ScrollMotionDemo";
 import MountainScroll from "./gsap/plugins/MountainScroll";
 import AirplaneScroll from "./gsap/plugins/AirplaneScroll";
+import StaggerText from "./gsap/examples/StaggerText";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -130,7 +131,8 @@ function App() {
         {/* <ScrumbleDemo /> */}
         {/* <ScrollMotionDemo /> */}
         {/* <MountainScroll /> */}
-        <AirplaneScroll />
+        {/* <AirplaneScroll /> */}
+        <StaggerText />
       </div>
     </>
   );
