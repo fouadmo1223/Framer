@@ -45,6 +45,7 @@ const Opening = () => {
       timeline.from(hero.current, {
         clipPath: "inset(20% 20% 20% 20%)",
         duration: 2,
+        delay: 1,
         ease: "power2.inOut",
       });
     },
