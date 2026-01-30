@@ -10,7 +10,7 @@ const OverLay = ({ timeline }) => {
     () => {
       timeline &&
         gsap.to("div", {
-          xPercent: -100,
+          xPercent: gsap.utils.wrap([-100, 100]),
           duration: 2,
           ease: "power2.inOut",
         });
