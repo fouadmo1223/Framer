@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
+gsap.registerPlugin(SplitText);
 
 const StaggerText = () => {
   const container = useRef(null);
@@ -9,35 +11,34 @@ const StaggerText = () => {
 
   useGSAP(
     () => {
+      const splitFirst = new SplitText(firstTitle.current, {
+        type: "chars",
+      });
+
+      const splitSecond = new SplitText(secondTitle.current, {
+        type: "chars",
+      });
+
       gsap.defaults({
         repeat: -1,
         yoyo: true,
-        duration: 2,
-        stagger: 0.5,
+        duration: 1.6,
+        stagger: 0.06,
         ease: "power2.inOut",
       });
 
-      gsap.fromTo(
-        firstTitle.current,
-        {
-          y: -100,
-        },
-        {
-          y: 150,
-        },
-      );
-      gsap.fromTo(
-        secondTitle.current,
-        {
-          y: -100,
-          opacity: 0.7,
-        },
-        {
-          y: 150,
+      gsap.fromTo(splitFirst.chars, { y: -100 }, { y: 150 });
 
-          opacity: 0.3,
-        },
+      gsap.fromTo(
+        splitSecond.chars,
+        { y: -100, opacity: 0.7 },
+        { y: 150, opacity: 0.3 },
       );
+
+      return () => {
+        splitFirst.revert();
+        splitSecond.revert();
+      };
     },
     { scope: container },
   );
