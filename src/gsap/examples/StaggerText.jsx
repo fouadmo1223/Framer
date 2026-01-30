@@ -9,6 +9,14 @@ const StaggerText = () => {
 
   useGSAP(
     () => {
+      gsap.defaults({
+        repeat: -1,
+        yoyo: true,
+        duration: 2,
+        stagger: 0.5,
+        ease: "power2.inOut",
+      });
+
       gsap.fromTo(
         firstTitle.current,
         {
@@ -16,10 +24,6 @@ const StaggerText = () => {
         },
         {
           y: 150,
-          repeat: -1,
-          yoyo: true,
-          duration: 1,
-          stagger: 0.5,
         },
       );
       gsap.fromTo(
@@ -30,11 +34,8 @@ const StaggerText = () => {
         },
         {
           y: 150,
-          repeat: -1,
+
           opacity: 0.3,
-          yoyo: true,
-          duration: 1,
-          stagger: 0.5,
         },
       );
     },
@@ -56,7 +57,9 @@ const StaggerText = () => {
         <div className="absolute top-0 -translate-y-1/2">
           {/* // don't make animation on element have css styles for x and y */}
 
-          <h2 ref={secondTitle}>GSAP</h2>
+          <h2 className="blur" ref={secondTitle}>
+            GSAP
+          </h2>
         </div>
       </div>
     </div>
