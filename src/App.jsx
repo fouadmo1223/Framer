@@ -37,6 +37,7 @@ import ParrelxEfect from "./gsap/examples/ParrelxEfect";
 import Frames from "./gsap/examples/Frames";
 import ToggleButton from "./gsap/examples/ToggleButton";
 import GsapToggle from "./gsap/examples/GsapToggle";
+import VideoScrub from "./gsap/examples/VideoScrub";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -142,7 +143,8 @@ function App() {
         {/* <ParrelxEfect /> */}
         {/* <Frames /> */}
         {/* <ToggleButton /> */}
-        <GsapToggle />
+        {/* <GsapToggle /> */}
+        <VideoScrub />
       </div>
     </>
   );
