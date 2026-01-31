@@ -35,6 +35,7 @@ import StaggerText from "./gsap/examples/StaggerText";
 import Opening from "./gsap/examples/Opening";
 import ParrelxEfect from "./gsap/examples/ParrelxEfect";
 import Frames from "./gsap/examples/Frames";
+import ToggleButton from "./gsap/examples/ToggleButton";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -138,7 +139,8 @@ function App() {
         {/* <StaggerText /> */}
         {/* <Opening /> */}
         {/* <ParrelxEfect /> */}
-        <Frames />
+        {/* <Frames /> */}
+        <ToggleButton />
       </div>
     </>
   );
