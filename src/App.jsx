@@ -38,6 +38,8 @@ import Frames from "./gsap/examples/Frames";
 import ToggleButton from "./gsap/examples/ToggleButton";
 import GsapToggle from "./gsap/examples/GsapToggle";
 import VideoScrub from "./gsap/examples/VideoScrub";
+import NumberAlongPath from "./gsap/examples/NumberAlongPath";
+import ScrollPathDemo from "./gsap/examples/ScrollPathDemo";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -144,7 +146,9 @@ function App() {
         {/* <Frames /> */}
         {/* <ToggleButton /> */}
         {/* <GsapToggle /> */}
-        <VideoScrub />
+        {/* <VideoScrub /> */}
+        {/* <NumberAlongPath /> */}
+        <ScrollPathDemo />
       </div>
     </>
   );

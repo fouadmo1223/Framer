@@ -13,15 +13,14 @@ function videoScrub(video, vars = {}) {
     video,
     { currentTime: 0 },
     {
-      currentTime: video.duration || 1, // fallback
-      ease: "none", // ← very important for clean scrubbing
+      currentTime: video.duration || 1,
+      ease: "none",
       paused: true,
       immediateRender: false,
       ...vars,
     },
   );
 
-  // Force initial seek + prevent auto-play weirdness
   const reset = () => {
     video.currentTime = 0;
     video.pause();
@@ -33,9 +32,9 @@ function videoScrub(video, vars = {}) {
 
   const onMetadata = () => {
     reset();
-    // Some browsers need this extra kick
-    video.currentTime = 0.01;
-    video.currentTime = 0;
+    // Helps some browsers kickstart seeking
+    video.currentTime = 0.04;
+    setTimeout(() => (video.currentTime = 0), 50);
   };
 
   if (video.readyState >= 1) {
@@ -49,7 +48,7 @@ function videoScrub(video, vars = {}) {
   return tween;
 }
 
-const VideoScrub = () => {
+export default function VideoScrub() {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
 
@@ -60,17 +59,25 @@ const VideoScrub = () => {
 
       const scrubTween = videoScrub(video, {
         scrollTrigger: {
-          trigger: containerRef.current, // or video itself — both ok
-          start: "top top", // more reliable than "center center" in many cases
-          end: "+=2000", // pixels of scroll distance — adjust to taste (1500–4000 common)
-          scrub: true, // direct / immediate = best for video
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=3500", // scroll distance in pixels — increase for slower scrub
+          scrub: true, // direct scrubbing (best for video)
           pin: true,
           pinSpacing: true,
-          anticipatePin: 1, // smoother pin start on mobile
+          anticipatePin: 1,
           invalidateOnRefresh: true,
-          // markers: true,                // ← turn on to debug positions
+          // markers: true,           // ← turn on to visualize trigger start/end lines
         },
       });
+
+      // Fade in once playable (visual feedback)
+      gsap.set(video, { opacity: 0 });
+      video.addEventListener(
+        "canplay",
+        () => gsap.to(video, { opacity: 1, duration: 0.8 }),
+        { once: true },
+      );
 
       return () => {
         if (scrubTween) scrubTween.kill();
@@ -90,24 +97,43 @@ const VideoScrub = () => {
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
+        position: "relative",
       }}
     >
       <video
         ref={videoRef}
-        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4"
         muted
         playsInline
         preload="auto"
         style={{
-          width: "90%",
-          maxWidth: "1200px",
+          width: "92%",
+          maxWidth: "1280px",
           height: "auto",
-          borderRadius: "12px",
-          boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
+          borderRadius: "16px",
+          boxShadow: "0 25px 50px -12px rgba(0,0,0,0.7)",
+          objectFit: "contain",
         }}
       />
+
+      {/* Scroll hint overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          pointerEvents: "none",
+          color: "#fff",
+          fontSize: "2rem",
+          fontWeight: "bold",
+          textShadow: "0 4px 12px rgba(0,0,0,0.9)",
+          zIndex: 5,
+        }}
+      >
+        Scroll Down to Scrub Video
+      </div>
     </div>
   );
-};
-
-export default VideoScrub;
+}
