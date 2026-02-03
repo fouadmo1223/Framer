@@ -41,6 +41,7 @@ import VideoScrub from "./gsap/examples/VideoScrub";
 import NumberAlongPath from "./gsap/examples/NumberAlongPath";
 import ScrollPathDemo from "./gsap/examples/ScrollPathDemo";
 import StackedCards from "./gsap/examples/StackedCards";
+import StackedCardsTwo from "./gsap/examples/StackedCardsTwo";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -150,7 +151,8 @@ function App() {
         {/* <VideoScrub /> */}
         {/* <NumberAlongPath /> */}
         {/* <ScrollPathDemo /> */}
-        <StackedCards />
+        {/* <StackedCards /> */}
+        <StackedCardsTwo />
       </div>
     </>
   );

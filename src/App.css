@@ -64,3 +64,10 @@ body {
     font-style: italic;
     color:aqua
 }
+
+@layer components {
+  .card:not(:first-child) {
+    position: absolute;
+    top: 0px;
+  }
+}
