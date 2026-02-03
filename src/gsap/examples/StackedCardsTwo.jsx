@@ -30,7 +30,13 @@ const StackedCardsTwo = () => {
       cardsWithoutFirst.forEach((card, index) => {
         tl.from(card, {
           y: window.innerHeight,
-        });
+        }).to(
+          cardsWithoutFirst[index - 1],
+          {
+            scale: 0.8,
+          },
+          "<50%",
+        );
       });
     },
     { scope: container },
