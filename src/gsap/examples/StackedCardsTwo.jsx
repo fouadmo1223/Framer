@@ -12,6 +12,11 @@ const StackedCardsTwo = () => {
     () => {
       const cards = gsap.utils.toArray(".card");
       const cardsWithoutFirst = gsap.utils.toArray(".card:not(:first-child)");
+
+      gsap.set(cardsWithoutFirst, {
+        y: (i) => i * 20 + 20, // for adding space top to the sections
+      });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
