@@ -14,9 +14,9 @@ const ScrollPathDemo = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Get center point of an element relative to container
+      // helper: center of element relative to container
       const getCenterPoint = (el) => {
-        const p = MotionPathPlugin.convertCoordinates(
+        const point = MotionPathPlugin.convertCoordinates(
           el,
           containerRef.current,
           {
@@ -26,8 +26,8 @@ const ScrollPathDemo = () => {
         );
 
         return {
-          x: p.x - targetRef.current.offsetWidth / 2,
-          y: p.y - targetRef.current.offsetHeight / 2,
+          x: point.x - targetRef.current.offsetWidth / 2,
+          y: point.y - targetRef.current.offsetHeight / 2,
         };
       };
 
@@ -35,23 +35,20 @@ const ScrollPathDemo = () => {
       const p2 = getCenterPoint(box2Ref.current);
       const p3 = getCenterPoint(box3Ref.current);
 
-      // Single animation with keyframes = perfect scroll sync
-      gsap.to(targetRef.current, {
-        keyframes: [
-          { x: p1.x, y: p1.y },
-          { x: p2.x, y: p2.y },
-          { x: p3.x, y: p3.y },
-        ],
-        ease: "none",
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=3000", // controls scroll length
-          scrub: true,
-          pin: true,
+          end: "bottom bottom",
+          scrub: 1,
+
           anticipatePin: 1,
         },
       });
+
+      tl.to(targetRef.current, { x: p1.x, y: p1.y })
+        .to(targetRef.current, { x: p2.x, y: p2.y })
+        .to(targetRef.current, { x: p3.x, y: p3.y });
 
       ScrollTrigger.refresh();
     }, containerRef);
