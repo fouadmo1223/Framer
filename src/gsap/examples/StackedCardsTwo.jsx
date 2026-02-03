@@ -33,7 +33,7 @@ const StackedCardsTwo = () => {
         }).to(
           cardsWithoutFirst[index - 1],
           {
-            scale: 0.8,
+            scale: 0.8 ,
           },
           "<50%",
         );
