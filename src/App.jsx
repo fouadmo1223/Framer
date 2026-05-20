@@ -42,6 +42,7 @@ import NumberAlongPath from "./gsap/examples/NumberAlongPath";
 import ScrollPathDemo from "./gsap/examples/ScrollPathDemo";
 import StackedCards from "./gsap/examples/StackedCards";
 import StackedCardsTwo from "./gsap/examples/StackedCardsTwo";
+import RevealOnMount from './gsap/examples/RevealOnMount';
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -153,6 +154,7 @@ function App() {
         {/* <ScrollPathDemo /> */}
         {/* <StackedCards /> */}
         <StackedCardsTwo />
+        <RevealOnMount />
       </div>
     </>
   );

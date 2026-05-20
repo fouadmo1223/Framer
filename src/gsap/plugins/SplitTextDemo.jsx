@@ -16,26 +16,26 @@ const SplitTextDemo = () => {
     // document.fonts.ready  to wait fonts to be loadded
 
     // make animation on splited text
-    gsap.from(split.lines, {
-      opacity: 0,
-      y: 100,
-      autoSplit: true, // for resizning
-      mask: "lines",
-      stagger: 1,
-      duration: 1,
-      ease: "power2.out",
-    });
-
-    // gsap.from(split.chars, {
+    // gsap.from(split.lines, {
     //   opacity: 0,
     //   y: 100,
-    //   stagger: {
-    //     each: "0.01",
-    //     from: "random",
-    //   },
+    //   autoSplit: true, // for resizning
+    //   mask: "lines",
+    //   stagger: 1,
     //   duration: 1,
-    //   ease: "power2.in",
+    //   ease: "power2.out",
     // });
+
+    gsap.from(split.chars, {
+      opacity: 0,
+      y: 100,
+      stagger: {
+        each: "0.01",
+        from: "random",
+      },
+      duration: 1,
+      ease: "power2.in",
+    });
   }, []);
 
   return (

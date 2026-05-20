@@ -20,7 +20,7 @@ const CharAnimation = () => {
   );
 
   return (
-    <div ref={container} className="[&_span]:text-3xl [&_span]:inline-block">
+    <div ref={container} className="[&_span]:text-3xl [&_span]:inline-block text-white">
       <span>h</span>
       <span>e</span>
       <span>l</span>
