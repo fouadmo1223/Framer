@@ -7,6 +7,7 @@ import { Box3, MathUtils, Vector3 } from "three"
 const MODEL_HEIGHT = 2.6
 
 useGLTF.preload("/angel.glb")
+//  itmst be a glob file 
 
 const getScrollProgress = () => {
   const max = document.documentElement.scrollHeight - window.innerHeight

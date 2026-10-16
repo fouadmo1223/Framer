@@ -48,6 +48,7 @@ import AnimatedText from "./taiwind/AnimatedText";
 import ScrollProgressCards from "./taiwind/ScrollProgressCards";
 import Carousel from "./taiwind/Carousel";
 import Scene from "./threeD/Scene";
+import AutoScene from "./threeD/autoPlay/AutoScene";
 
 // PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d 
 
@@ -126,7 +127,8 @@ function App() {
       {/* GSAAAAP  */}
 
       {/* <div className="min-h-screen h-[11180px] w-full flex-col flex justify-center items-center gap-10"> */}
-      <div className="relative min-h-screen h-[400vh] w-full bg-black">
+      {/* 400vh gives the scroll Scene room to scroll; AutoScene doesn't need it */}
+      <div className="relative min-h-screen h-screen w-full bg-black">
         {/* <Starter />
         <HelloSVG />
         <ClickEvent />
@@ -167,7 +169,8 @@ function App() {
           {/* <ScrollProgressCards /> */}
           {/* <Carousel /> */}
 {/* // PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d  */}
-          <Scene />
+          {/* <Scene /> */}
+          <AutoScene />
 
       </div>
     </>
