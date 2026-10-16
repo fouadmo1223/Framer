@@ -45,6 +45,8 @@ import StackedCardsTwo from "./gsap/examples/StackedCardsTwo";
 import RevealOnMount from './gsap/examples/RevealOnMount';
 import Like from "./Like";
 import AnimatedText from "./taiwind/AnimatedText";
+import ScrollProgressCards from "./taiwind/ScrollProgressCards";
+import Carousel from "./taiwind/Carousel";
 
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
@@ -158,7 +160,9 @@ function App() {
         {/* <StackedCardsTwo /> */}
         {/* <RevealOnMount /> */}
         {/* <Like /> */}
-          <AnimatedText text="Each letter fades in one after another. Each letter fades in one after another. Each letter fades in one after another." />
+          {/* <AnimatedText text="Each letter fades in one after another. Each letter fades in one after another. Each letter fades in one after another." /> */}
+          {/* <ScrollProgressCards /> */}
+          <Carousel />
       </div>
     </>
   );
