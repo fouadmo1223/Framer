@@ -53,7 +53,7 @@ const StaggerText = () => {
       ref={container}
       className=" w-full h-[90%] text-white text-[180px] pt-10 flex flex-col items-center justify-center  "
     >
-      <div className="w-[90%] relative border-b border-b-white   h-[50%] overflow-hidden flex justify-center">
+      <div className="w-[90%] relative   h-[50%] overflow-hidden flex justify-center">
         <div className="absolute bottom-0 translate-y-1/2">
           {/* // don't make animation on element have css styles for x and y */}
           <h2 ref={firstTitle}>GSAP</h2>
