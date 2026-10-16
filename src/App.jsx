@@ -47,6 +47,7 @@ import Like from "./Like";
 import AnimatedText from "./taiwind/AnimatedText";
 import ScrollProgressCards from "./taiwind/ScrollProgressCards";
 import Carousel from "./taiwind/Carousel";
+import Scene from "./threeD/Scene";
 
 // PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d 
 
@@ -166,6 +167,7 @@ function App() {
           {/* <ScrollProgressCards /> */}
           {/* <Carousel /> */}
 {/* // PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d  */}
+          <Scene />
 
       </div>
     </>

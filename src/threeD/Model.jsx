@@ -1,8 +1,13 @@
 import { useGLTF } from "@react-three/drei"
-const gltf = useGLTF("/angel.glb")
+
+import { useRef } from "react"
+
+ useGLTF.preload("/angel.glb")
 const Model = () => {
+ const group = useRef(null)   
+ const {nodes,materials,animations,scene} = useGLTF("/angel.glb")
   return (
-    <group>
+    <group ref={group} object={scene} >
         <primitive />
     </group>
   )
