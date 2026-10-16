@@ -48,6 +48,8 @@ import AnimatedText from "./taiwind/AnimatedText";
 import ScrollProgressCards from "./taiwind/ScrollProgressCards";
 import Carousel from "./taiwind/Carousel";
 
+// PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d 
+
 // Reusable Page Wrapper (for animations)
 const PageTransition = ({ children }) => {
   return (
@@ -162,7 +164,9 @@ function App() {
         {/* <Like /> */}
           {/* <AnimatedText text="Each letter fades in one after another. Each letter fades in one after another. Each letter fades in one after another." /> */}
           {/* <ScrollProgressCards /> */}
-          <Carousel />
+          {/* <Carousel /> */}
+{/* // PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d  */}
+
       </div>
     </>
   );
