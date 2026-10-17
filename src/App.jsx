@@ -49,6 +49,7 @@ import ScrollProgressCards from "./taiwind/ScrollProgressCards";
 import Carousel from "./taiwind/Carousel";
 import Scene from "./threeD/Scene";
 import AutoScene from "./threeD/autoPlay/AutoScene";
+import Hero from "./threeD/HorizontalAnimation/Hero";
 
 // PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d 
 
@@ -170,7 +171,9 @@ function App() {
           {/* <Carousel /> */}
 {/* // PS E:\react-animation> npm install @react-three/drei @react-three/fiber @react-three/postprocessing three    for 3d  */}
           {/* <Scene /> */}
-          <AutoScene />
+          {/* <AutoScene /> */}
+
+          <Hero />
 
       </div>
     </>
