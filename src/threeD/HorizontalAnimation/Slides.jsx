@@ -11,28 +11,33 @@ const slideData = [
     tag: "CHAPTER 01",
     title: "Wanderlust",
     desc: "Roam wild. Chase light.",
-    // entrance effect for [tag, title, desc]
-    effects: ["fade", "zoom", "slide"],
+    imageEffect: "zoom", // photo pulls back from a tight crop
+    textEffect: "slide", // lines slide in from alternating sides
   },
   {
     url: "https://images.pexels.com/photos/39957125/pexels-photo-39957125.jpeg",
     tag: "CHAPTER 02",
     title: "Solitude",
     desc: "Quiet roads speak loudest.",
-    effects: ["slide", "flip", "fade"],
+    imageEffect: "flip", // photo tilts up into place
+    textEffect: "flip", // lines flip down like cards
   },
   {
     url: "https://images.pexels.com/photos/18523946/pexels-photo-18523946.jpeg",
     tag: "CHAPTER 03",
     title: "Horizon",
     desc: "Always just beyond reach.",
-    effects: ["zoom", "smooth", "flip"],
+    imageEffect: "spin", // photo straightens while pushing in
+    textEffect: "zoom", // lines pop in with a bounce
   },
 ];
 
-const ENTER_DURATION = 1.4; // seconds for the full staggered entrance
+const ENTER_DURATION = 1.8; // seconds for the full entrance (image + text)
 const EXIT_DURATION = 0.5;
-const STAGGER = [0, 0.15, 0.3]; // delay for tag, title, desc (fraction of progress)
+const IMAGE_SPAN = 0.6; // image animates over the first 60% of the entrance
+const TEXT_START = 0.25; // text begins once the image is underway
+const STAGGER = [0, 0.12, 0.24]; // delay for tag, title, desc (fraction of progress)
+const LINE_SPAN = 1 - TEXT_START - STAGGER[2];
 
 const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
 const easeOutBack = (x) => {
@@ -41,8 +46,35 @@ const easeOutBack = (x) => {
   return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
 };
 
+// Applies an entrance effect to the image group and sets the photo's crop zoom.
+function applyImageEffect(group, material, effect, p) {
+  const e = easeOutCubic(p);
+  group.position.set(0, 0, 0);
+  group.rotation.set(0, 0, 0);
+  group.scale.setScalar(1);
+  let zoom = 1;
+
+  switch (effect) {
+    case "zoom":
+      zoom = 1.45 - 0.45 * e;
+      break;
+    case "flip":
+      group.rotation.x = -(1 - easeOutBack(p)) * 0.6;
+      zoom = 1.1;
+      break;
+    case "spin":
+      group.rotation.z = -(1 - e) * 0.12;
+      group.scale.setScalar(0.9 + 0.1 * e);
+      zoom = 1 + 0.18 * e;
+      break;
+    default:
+      break;
+  }
+  if (material) material.zoom = zoom;
+}
+
 // Applies an entrance effect to a line group and returns its opacity.
-function applyEffect(group, effect, p, baseY, width, height) {
+function applyEffect(group, effect, p, baseY, width, height, i) {
   const e = easeOutCubic(p);
   group.position.set(0, baseY, 0);
   group.rotation.set(0, 0, 0);
@@ -52,9 +84,11 @@ function applyEffect(group, effect, p, baseY, width, height) {
     case "zoom":
       group.scale.setScalar(0.3 + 0.7 * easeOutBack(p));
       break;
-    case "slide":
-      group.position.x = -(1 - e) * width * 0.25;
+    case "slide": {
+      const dir = i % 2 === 0 ? -1 : 1;
+      group.position.x = dir * (1 - e) * width * 0.25;
       break;
+    }
     case "flip":
       group.rotation.x = -(1 - e) * Math.PI * 0.5;
       break;
@@ -79,8 +113,9 @@ function setOpacity(object, opacity) {
   });
 }
 
-function Slide({ url, tag, title, desc, effects, index, refs }) {
+function Slide({ url, tag, title, desc, imageEffect, textEffect, index, refs }) {
   const { width, height } = useThree((state) => state.viewport);
+  const imgGroup = useRef(null);
   const imgRef = useRef(null);
   const overlayRef = useRef(null);
   const lineRefs = useRef([]);
@@ -112,7 +147,11 @@ function Slide({ url, tag, title, desc, effects, index, refs }) {
       img.transparent = true;
       img.opacity = 0.4 + t * 0.6;
       img.grayscale = 1 - t;
-      img.zoom = 1 + easeOutCubic(p) * 0.12; // slow zoom-in on the photo
+    }
+
+    if (imgGroup.current) {
+      const ip = clamp(p / IMAGE_SPAN, 0, 1);
+      applyImageEffect(imgGroup.current, img, imageEffect, ip);
     }
 
     if (overlayRef.current) {
@@ -121,8 +160,8 @@ function Slide({ url, tag, title, desc, effects, index, refs }) {
 
     lineRefs.current.forEach((line, i) => {
       if (!line) return;
-      const lp = clamp((p - STAGGER[i]) / (1 - STAGGER[2]), 0, 1);
-      const opacity = applyEffect(line, effects[i], lp, baseY[i], width, height);
+      const lp = clamp((p - TEXT_START - STAGGER[i]) / LINE_SPAN, 0, 1);
+      const opacity = applyEffect(line, textEffect, lp, baseY[i], width, height, i);
       setOpacity(line, opacity);
     });
   });
@@ -152,11 +191,13 @@ function Slide({ url, tag, title, desc, effects, index, refs }) {
 
   return (
     <>
-      <DImage ref={imgRef} url={url} scale={[imgW, imgH]} transparent />
-      <mesh ref={overlayRef} position={[0, 0, 0.01]}>
-        <planeGeometry args={[imgW, imgH]} />
-        <meshBasicMaterial color="#000000" transparent opacity={0} />
-      </mesh>
+      <group ref={imgGroup}>
+        <DImage ref={imgRef} url={url} scale={[imgW, imgH]} transparent />
+        <mesh ref={overlayRef} position={[0, 0, 0.01]}>
+          <planeGeometry args={[imgW, imgH]} />
+          <meshBasicMaterial color="#000000" transparent opacity={0} />
+        </mesh>
+      </group>
       <group position={[0, 0, 0.05]}>
         {lines.map((line, i) => (
           <group
